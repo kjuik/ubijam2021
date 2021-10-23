@@ -11,15 +11,18 @@ public class Lumberjack : MonoBehaviour
     bool isRunning;
     bool isChopping;
 
+    Animator animator;
+
     private void Start()
     {
         chopTrigger.gameObject.SetActive(false);
+        animator = GetComponentInChildren<Animator>();
     }
 
     internal void StartRunning()
     {
         isRunning = true;
-        //TODO animate
+        animator.SetTrigger("start");
     }
 
     internal void TryChop()
@@ -35,7 +38,8 @@ public class Lumberjack : MonoBehaviour
         isChopping = true;
         chopTrigger.gameObject.SetActive(true);
 
-        //TODO animate
+        animator.SetTrigger("chop");
+
         yield return new WaitForSeconds(chopDuration);
 
         chopTrigger.gameObject.SetActive(false);
@@ -48,7 +52,7 @@ public class Lumberjack : MonoBehaviour
         StopAllCoroutines();
         isChopping = false;
         isRunning = false;
-        //TODO animate
+        animator.SetTrigger("ko");
     }
 
     internal void Win()
