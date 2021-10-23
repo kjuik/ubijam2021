@@ -5,32 +5,26 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
-    public AudioSource audioSource;
-
-    public AudioClip startClip;
-    public AudioClip runningClip;
-    public AudioClip lossClip;
-    public AudioClip winClip;
+    public AudioSource musicSource;
+    public AudioSource ambienceSource;
 
     private void Start()
     {
-        if (startClip)
+        if (ambienceSource)
         {
-            audioSource.loop = true;
-            audioSource.PlayOneShot(startClip);
+            ambienceSource.Play();
         }
     }
 
     internal void PlayRunning()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(runningClip);
+        musicSource.Play();
         StartCoroutine(WinWhenMusicEnds());
     }
 
     private IEnumerator WinWhenMusicEnds()
     {
-        yield return new WaitForSeconds(runningClip.length);
+        yield return new WaitForSeconds(musicSource.clip.length);
         if (GameManager.Instance.CurrentState == GameManager.State.Playing)
         {
             GameManager.Instance.Win();
@@ -39,21 +33,11 @@ public class Music : MonoBehaviour
 
     internal void PlayLose()
     {
-        audioSource.Stop();
-        if (lossClip)
-        {
-            audioSource.loop = true;
-            audioSource.PlayOneShot(lossClip);
-        }
+        musicSource.Stop();
     }
 
     internal void PlayWin()
     {
-        audioSource.Stop();
-        if (winClip)
-        {
-            audioSource.loop = true;
-            audioSource.PlayOneShot(winClip);
-        }
+        musicSource.Stop();
     }
 }
