@@ -9,6 +9,9 @@ public class TreeSpawner : MonoBehaviour
 
     float spawnMargin;
 
+    public float treeHeightRandomAmplitude = 1f;
+    public float feelGoodAjustment = 0.3f;
+
     BeatData data;
 
     private void Start()
@@ -39,10 +42,8 @@ public class TreeSpawner : MonoBehaviour
                 yield break;
             }
 
-            if (GameManager.Instance.lumberjack.IsChopping)
-            {
-                SoundEffects.Instance.PlayChop();
-            }
+            SoundEffects.Instance.PlayChop();
+            
             previousBeatTime = spawnTime;
         }
     }
@@ -53,7 +54,7 @@ public class TreeSpawner : MonoBehaviour
 
         foreach(var beat in data.beats)
         {
-            var spawnTime = beat - spawnMargin + 0.3f; //feel good adjustment
+            var spawnTime = beat - spawnMargin + feelGoodAjustment;
 
             yield return new WaitForSeconds(spawnTime - previousSpawnTime);
             SpawnTree();
@@ -63,8 +64,10 @@ public class TreeSpawner : MonoBehaviour
 
     private void SpawnTree()
     {
-        var treePrefab = treePrefabs[UnityEngine.Random.Range(0, treePrefabs.Length)];
-        Instantiate(treePrefab, spawnPosition.transform.position, spawnPosition.transform.rotation);
+        var treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
+        Instantiate(treePrefab, 
+            spawnPosition.transform.position + (Random.value * treeHeightRandomAmplitude * Vector3.up), 
+            spawnPosition.transform.rotation);
     }
 
     internal void StopSpawning()
