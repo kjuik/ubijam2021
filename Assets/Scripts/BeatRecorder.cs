@@ -15,7 +15,7 @@ public class BeatRecorder : MonoBehaviour
 
     public AudioSource audioSource;
 
-    BeatTimeline currentRecording = new BeatTimeline();
+    BeatData currentRecording = new BeatData();
 
     bool isPlaying;
     float startTime;
@@ -67,7 +67,7 @@ public class BeatRecorder : MonoBehaviour
             audioSource.Stop();
 
             startTime = 0f;
-            currentRecording = new BeatTimeline();
+            currentRecording = new BeatData();
             saveFileLabel.gameObject.SetActive(false);
         }
 
