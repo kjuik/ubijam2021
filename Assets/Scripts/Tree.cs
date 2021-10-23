@@ -4,6 +4,7 @@ public class Tree : MonoBehaviour
 {
     public Vector3 speed;
     public float fallDuration;
+    public GameObject particles;
 
     bool isFalling;
 
@@ -35,8 +36,8 @@ public class Tree : MonoBehaviour
 
         SoundEffects.Instance.PlayChop();
 
-        //TODO animate
         transform.Find("Visuals").gameObject.SetActive(false);
+        particles.SetActive(true);
 
         GetComponentInChildren<Collider>().enabled = false;
         Destroy(gameObject, fallDuration);
