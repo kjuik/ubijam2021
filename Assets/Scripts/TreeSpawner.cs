@@ -24,6 +24,29 @@ public class TreeSpawner : MonoBehaviour
     public void StartSpawning()
     {
         StartCoroutine(SpawnRoutine());
+        StartCoroutine(PlayBeatsRoutine());
+    }
+
+    private IEnumerator PlayBeatsRoutine()
+    {
+        var previousBeatTime = 0f;
+
+        foreach (var beat in data.beats)
+        {
+            var spawnTime = beat;
+            yield return new WaitForSeconds(spawnTime - previousBeatTime);
+
+            if (GameManager.Instance.CurrentState != GameManager.State.Playing)
+            {
+                yield break;
+            }
+
+            if (GameManager.Instance.lumberjack.IsChopping)
+            {
+                SoundEffects.Instance.PlayChop();
+            }
+            previousBeatTime = spawnTime;
+        }
     }
 
     private IEnumerator SpawnRoutine()

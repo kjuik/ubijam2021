@@ -36,8 +36,6 @@ public class Tree : MonoBehaviour
     {
         isFalling = true;
 
-        SoundEffects.Instance.PlayChop();
-
         transform.Find("Visuals").gameObject.SetActive(false);
         particles.SetActive(true);
 
