@@ -18,7 +18,7 @@ public class TreeSpawner : MonoBehaviour
         var beatsJson = (TextAsset)Resources.Load("beats");
         data = JsonUtility.FromJson<BeatData>(beatsJson.text);
 
-        spawnMargin = Mathf.Abs(spawnPosition.transform.position.x - chopTrigger.transform.position.x) / treePrefab.speed.x;
+        spawnMargin = Mathf.Abs((spawnPosition.transform.position.x - chopTrigger.transform.position.x) / treePrefab.speed.x);
     }
 
     public void StartSpawning()
