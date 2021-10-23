@@ -6,7 +6,7 @@ namespace Assets.Scripts
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Tree>())
+            if (other.GetComponentInParent<Tree>())
             {
                 GameManager.Instance.Lose();
             }

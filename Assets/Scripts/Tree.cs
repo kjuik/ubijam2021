@@ -3,9 +3,9 @@ using UnityEngine;
 public class Tree : MonoBehaviour
 {
     public Vector3 speed;
+    public float fallDuration;
 
-    bool isChopped;
-    float fallDownDuration;
+    bool isFalling;
 
     public void Update()
     {
@@ -15,18 +15,20 @@ public class Tree : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Chop Trigger" && !isChopped)
+        if (other.tag == "Chop Trigger" && !isFalling)
         {
-            ChopDown();
+            Fall();
         }
     }
 
-    private void ChopDown()
+    private void Fall()
     {
-        isChopped = true;
+        isFalling = true;
+
         //TODO animate
+        transform.Find("Visuals").gameObject.SetActive(false);
 
         GetComponentInChildren<Collider>().enabled = false;
-        Destroy(gameObject, fallDownDuration);
+        Destroy(gameObject, fallDuration);
     }
 }

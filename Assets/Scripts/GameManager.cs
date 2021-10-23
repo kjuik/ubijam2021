@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         Won
     }
 
-    public State CurrentState { get; private set; }
+    public State CurrentState { get; private set; } = State.Started;
 
     public Lumberjack lumberjack;
     public ScrollingBackground background;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.Lost:
             case State.Won:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Return))
                 {
                     Restart();
                 }
@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void StartPlaying()
     {
+        CurrentState = State.Playing;
+
         lumberjack.StartRunning();
         background.ToggleScrolling(true);
         music.PlayRunning();
@@ -60,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        CurrentState = State.Lost;
+
         lumberjack.Die();
         background.ToggleScrolling(false);
         music.PlayLose();
@@ -68,6 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        CurrentState = State.Won;
+
         lumberjack.Win();
         background.ScrollToWin();
         music.PlayWin();

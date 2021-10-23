@@ -11,6 +11,11 @@ public class Lumberjack : MonoBehaviour
     bool isRunning;
     bool isChopping;
 
+    private void Start()
+    {
+        chopTrigger.gameObject.SetActive(false);
+    }
+
     internal void StartRunning()
     {
         isRunning = true;
