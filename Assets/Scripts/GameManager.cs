@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public State CurrentState { get; private set; } = State.Started;
 
     public Lumberjack lumberjack;
-    public ScrollingBackground background;
+    public ScrollingBackground[] backgrounds;
     public Music music;
     public TreeSpawner treeSpawner;
 
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(walkmanStartDelay);
 
-        background.ToggleScrolling(true);
+        foreach(var b in backgrounds) b.Begin();
         music.PlayRunning();
         treeSpawner.StartSpawning();
     }
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         CurrentState = State.Lost;
 
         lumberjack.Die();
-        background.ToggleScrolling(false);
+        foreach (var b in backgrounds) b.Lose();
         music.PlayLose();
         treeSpawner.StopSpawning();
     }
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         CurrentState = State.Won;
 
         lumberjack.Win();
-        background.ScrollToWin();
+        foreach (var b in backgrounds) b.Win();
         music.PlayWin();
         treeSpawner.StopSpawning();
     }
