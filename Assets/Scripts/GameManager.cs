@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,26 +33,28 @@ public class GameManager : MonoBehaviour
         switch (CurrentState)
         {
             case State.Started:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (InputDown)
                 {
                     StartCoroutine(StartPlaying());
                 }
                 break;
             case State.Playing:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (InputDown)
                 {
                     lumberjack.TryChop();
                 }
                 break;
             case State.Lost:
             case State.Won:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (InputDown)
                 {
                     Restart();
                 }
                 break;
         }
     }
+
+    private bool InputDown => Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
 
     private IEnumerator StartPlaying()
     {
