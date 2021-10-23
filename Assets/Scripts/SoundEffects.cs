@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts
+public class SoundEffects : MonoBehaviour
 {
-    public class SoundEffects : MonoBehaviour
+    public static SoundEffects Instance;
+
+    private void Awake()
     {
-        public static SoundEffects Instance;
+        Instance = this;
+    }
 
-        private void Awake()
-        {
-            Instance = this;
-        }
+    public AudioSource[] chopSources;
+    public AudioSource dieSource;
+    public AudioSource winSource;
 
-        public AudioSource chopSource;
+    public void PlayChop()
+    {
+        chopSources[Random.Range(0,chopSources.Length)].Play();
+    }
 
-        public void PlayChop()
-        {
-            chopSource.Play();
-        }
+    public void PlayDie()
+    {
+        dieSource.Play();
+    }
+
+    public void PlayWin()
+    {
+        winSource.Play();
     }
 }

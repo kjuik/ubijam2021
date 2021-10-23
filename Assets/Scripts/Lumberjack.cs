@@ -51,6 +51,8 @@ public class Lumberjack : MonoBehaviour
 
     internal void Die()
     {
+        SoundEffects.Instance.PlayDie();
+
         StopAllCoroutines();
         isChopping = false;
         isRunning = false;
@@ -59,6 +61,8 @@ public class Lumberjack : MonoBehaviour
 
     internal void Win()
     {
+        SoundEffects.Instance.PlayWin();
+
         StopAllCoroutines();
         isChopping = false;
         isRunning = false;

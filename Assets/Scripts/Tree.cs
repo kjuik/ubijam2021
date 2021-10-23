@@ -33,6 +33,8 @@ public class Tree : MonoBehaviour
     {
         isFalling = true;
 
+        SoundEffects.Instance.PlayChop();
+
         //TODO animate
         transform.Find("Visuals").gameObject.SetActive(false);
 

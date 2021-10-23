@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        if (CurrentState == State.Lost)
+        {
+            return;
+        }
+
         CurrentState = State.Lost;
 
         lumberjack.Die();
