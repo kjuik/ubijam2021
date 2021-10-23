@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public Music music;
     public TreeSpawner treeSpawner;
 
-    public float musicDelay;
+    public float walkmanStartDelay = 0.5f;
 
     private void Update()
     {
@@ -56,10 +56,11 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartPlaying()
     {
         CurrentState = State.Playing;
-
         lumberjack.StartRunning();
 
-        yield return new WaitForSeconds(musicDelay);
+        SoundEffects.Instance.PlayWalkmanClick();
+
+        yield return new WaitForSeconds(walkmanStartDelay);
 
         background.ToggleScrolling(true);
         music.PlayRunning();

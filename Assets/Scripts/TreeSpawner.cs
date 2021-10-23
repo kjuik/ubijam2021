@@ -9,6 +9,8 @@ public class TreeSpawner : MonoBehaviour
     public GameObject spawnPosition;
     public GameObject chopTrigger;
 
+    public float feelGoodAdjustment;
+
     float spawnMargin;
 
     BeatData data;
@@ -32,7 +34,7 @@ public class TreeSpawner : MonoBehaviour
 
         foreach(var beat in data.beats)
         {
-            var spawnTime = beat - spawnMargin;
+            var spawnTime = beat - spawnMargin + feelGoodAdjustment;
 
             yield return new WaitForSeconds(spawnTime - previousSpawnTime);
             SpawnTree();

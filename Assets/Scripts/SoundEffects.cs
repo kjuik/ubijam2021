@@ -12,6 +12,7 @@ public class SoundEffects : MonoBehaviour
     public AudioSource[] chopSources;
     public AudioSource dieSource;
     public AudioSource winSource;
+    public AudioSource walkmanSource;
 
     public void PlayChop()
     {
@@ -26,5 +27,10 @@ public class SoundEffects : MonoBehaviour
     public void PlayWin()
     {
         winSource.Play();
+    }
+
+    internal void PlayWalkmanClick()
+    {
+        walkmanSource.Play();
     }
 }
