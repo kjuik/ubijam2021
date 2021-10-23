@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class TreeSpawner : MonoBehaviour
 {
-    public Tree treePrefab;
+    public Tree[] treePrefabs;
     public GameObject spawnPosition;
     public GameObject chopTrigger;
 
@@ -20,7 +18,7 @@ public class TreeSpawner : MonoBehaviour
         var beatsJson = (TextAsset)Resources.Load("beats");
         data = JsonUtility.FromJson<BeatData>(beatsJson.text);
 
-        spawnMargin = Mathf.Abs((spawnPosition.transform.position.x - chopTrigger.transform.position.x) / treePrefab.speed.x);
+        spawnMargin = Mathf.Abs((spawnPosition.transform.position.x - chopTrigger.transform.position.x) / treePrefabs[0].speed.x);
     }
 
     public void StartSpawning()
@@ -44,6 +42,7 @@ public class TreeSpawner : MonoBehaviour
 
     private void SpawnTree()
     {
+        var treePrefab = treePrefabs[UnityEngine.Random.Range(0, treePrefabs.Length)];
         Instantiate(treePrefab, spawnPosition.transform.position, spawnPosition.transform.rotation);
     }
 
