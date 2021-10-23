@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.Lost:
             case State.Won:
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Restart();
                 }
