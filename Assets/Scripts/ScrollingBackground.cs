@@ -30,6 +30,15 @@ public class ScrollingBackground : MonoBehaviour
 
     List<GameObject> currentPanels = new List<GameObject>();
 
+    private void Start()
+    {
+        if (shouldDecideWhenToStop)
+        {
+            isSlowingDown = false;
+            startSlowingDownTime = 0f;
+        }
+    }
+
     internal void Begin()
     {
         isScrolling = true;
