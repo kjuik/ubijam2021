@@ -10,8 +10,10 @@ public class Tree : MonoBehaviour
 
     public void Update()
     {
-        //TODO should I move if chopped?
-        transform.position += speed * Time.deltaTime;
+        if (GameManager.Instance.CurrentState == GameManager.State.Playing)
+        {
+            transform.position += speed * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
