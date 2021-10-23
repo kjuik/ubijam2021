@@ -2050,7 +2050,7 @@ MonoBehaviour:
   treePrefab: {fileID: 2413101843471771727, guid: 305d394bc5c5266408887a899125838e, type: 3}
   spawnPosition: {fileID: 1262906951}
   chopTrigger: {fileID: 1663287208}
-  feelGoodAdjustment: 0.5
+  feelGoodAdjustment: 0.1
 --- !u!1 &1839096576
 GameObject:
   m_ObjectHideFlags: 0
