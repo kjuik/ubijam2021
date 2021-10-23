@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     public Music music;
     public TreeSpawner treeSpawner;
 
+    public float musicDelay;
+
     private void Update()
     {
         switch (CurrentState)
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
             case State.Started:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    StartPlaying();
+                    StartCoroutine(StartPlaying());
                 }
                 break;
             case State.Playing:
@@ -50,11 +53,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StartPlaying()
+    private IEnumerator StartPlaying()
     {
         CurrentState = State.Playing;
 
         lumberjack.StartRunning();
+
+        yield return new WaitForSeconds(musicDelay);
+
         background.ToggleScrolling(true);
         music.PlayRunning();
         treeSpawner.StartSpawning();
