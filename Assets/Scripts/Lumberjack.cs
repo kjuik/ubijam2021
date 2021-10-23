@@ -4,6 +4,7 @@ using UnityEngine;
 public class Lumberjack : MonoBehaviour
 {
     public float chopDuration;
+    public float chopTriggerDelay;
 
     public Collider hitbox;
     public Collider chopTrigger;
@@ -36,12 +37,13 @@ public class Lumberjack : MonoBehaviour
     private IEnumerator ChopCoroutine()
     {
         isChopping = true;
-        chopTrigger.gameObject.SetActive(true);
-
         animator.SetTrigger("chop");
 
-        yield return new WaitForSeconds(chopDuration);
+        yield return new WaitForSeconds(chopTriggerDelay);
+        chopTrigger.gameObject.SetActive(true);
 
+
+        yield return new WaitForSeconds(chopDuration - chopTriggerDelay);
         chopTrigger.gameObject.SetActive(false);
         isChopping = false;
     }

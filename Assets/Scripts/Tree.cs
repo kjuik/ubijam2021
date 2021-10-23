@@ -21,6 +21,14 @@ public class Tree : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Chop Trigger" && !isFalling)
+        {
+            Fall();
+        }
+    }
+
     private void Fall()
     {
         isFalling = true;
