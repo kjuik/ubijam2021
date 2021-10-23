@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -720,7 +720,6 @@ TextureImporter:
       Lumberjack_basic_sprites_14: -535487042
       Lumberjack_basic_sprites_4: 1432226113
       Lumberjack_basic_sprites_0: 554417722
-      leaf: 945990421
       Lumberjack_basic_sprites_20: -1720638569
       Lumberjack_basic_sprites_8: -1101618942
       Lumberjack_basic_sprites_7: 1247980344
@@ -740,9 +739,10 @@ TextureImporter:
       Lumberjack_basic_sprites_10: -176420235
       Lumberjack_basic_sprites_5: -481455205
       Lumberjack_basic_sprites_1: -884308055
+      Lumberjack_basic_sprites_17: 1892708729
       Lumberjack_basic_sprites_3: -1860659353
       Lumberjack_basic_sprites_9: 779663083
-      Lumberjack_basic_sprites_17: 1892708729
+      leaf: 945990421
       Lumberjack_basic_sprites_26: -1149313602
       Lumberjack_basic_sprites_11: -384707995
   spritePackingTag: 
