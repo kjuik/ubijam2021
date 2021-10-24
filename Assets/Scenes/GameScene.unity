@@ -994,6 +994,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &398247359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 91678447, guid: 359c2bc65e9cacd41a4bf4327e32f0ca, type: 3}
+  m_PrefabInstance: {fileID: 1708689240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &398247364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398247359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07749706e2e8565418382619409eaeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcInputText: Press space
+  mobileInputText: Tap anywhere
 --- !u!1 &409607084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +1717,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &815544634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 658125752, guid: 359c2bc65e9cacd41a4bf4327e32f0ca, type: 3}
+  m_PrefabInstance: {fileID: 1708689240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &815544639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815544634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07749706e2e8565418382619409eaeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcInputText: Press space
+  mobileInputText: Tap anywhere
 --- !u!1 &836726722
 GameObject:
   m_ObjectHideFlags: 0
@@ -12517,6 +12555,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.730896, y: 1.2835248, z: 1}
   m_Center: {x: 0.15649319, y: 0.09296727, z: 0}
+--- !u!1 &1666625871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 79604618, guid: 359c2bc65e9cacd41a4bf4327e32f0ca, type: 3}
+  m_PrefabInstance: {fileID: 1708689240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1666625877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666625871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07749706e2e8565418382619409eaeb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcInputText: Press space
+  mobileInputText: Tap anywhere
 --- !u!1001 &1708689240
 PrefabInstance:
   m_ObjectHideFlags: 0
