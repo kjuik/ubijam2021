@@ -12800,7 +12800,8 @@ MonoBehaviour:
   spawnPosition: {fileID: 1262906951}
   chopTrigger: {fileID: 1663287208}
   treeHeightRandomAmplitude: 1
-  feelGoodAjustment: 0.2
+  treeSpawnAjustment: 0.2
+  beatPlayAdjustment: 0
 --- !u!1 &1743069090
 GameObject:
   m_ObjectHideFlags: 0

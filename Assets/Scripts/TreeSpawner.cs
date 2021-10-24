@@ -10,7 +10,8 @@ public class TreeSpawner : MonoBehaviour
     float spawnMargin;
 
     public float treeHeightRandomAmplitude = 1f;
-    public float feelGoodAjustment = 0.3f;
+    public float treeSpawnAjustment = 0.3f;
+    public float beatPlayAdjustment = -0.1f;
 
     BeatData data;
 
@@ -34,7 +35,7 @@ public class TreeSpawner : MonoBehaviour
 
         foreach (var beat in data.beats)
         {
-            var spawnTime = beat;
+            var spawnTime = beat + beatPlayAdjustment;
             yield return new WaitForSeconds(spawnTime - previousBeatTime);
 
             if (GameManager.Instance.CurrentState != GameManager.State.Playing)
@@ -54,7 +55,7 @@ public class TreeSpawner : MonoBehaviour
 
         foreach(var beat in data.beats)
         {
-            var spawnTime = beat - spawnMargin + feelGoodAjustment;
+            var spawnTime = beat - spawnMargin + treeSpawnAjustment;
 
             yield return new WaitForSeconds(spawnTime - previousSpawnTime);
             SpawnTree();
