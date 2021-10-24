@@ -175,6 +175,7 @@ MonoBehaviour:
   music: {fileID: 26135014}
   treeSpawner: {fileID: 1722422550}
   walkmanStartDelay: 0.5
+  restartDelay: 1.5
 --- !u!1001 &26135013
 PrefabInstance:
   m_ObjectHideFlags: 0

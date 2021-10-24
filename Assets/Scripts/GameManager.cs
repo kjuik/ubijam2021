@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public TreeSpawner treeSpawner;
 
     public float walkmanStartDelay = 0.5f;
+    public float restartDelay = 2f;
+
+    float gameOverTime;
 
     private void Update()
     {
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.Lost:
             case State.Won:
-                if (InputDown)
+                if (InputDown && (Time.realtimeSinceStartup - gameOverTime) > restartDelay)
                 {
                     Restart();
                 }
@@ -80,6 +83,7 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentState = State.Lost;
+        gameOverTime = Time.realtimeSinceStartup;
 
         lumberjack.Die();
         foreach (var b in backgrounds) b.Lose();
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         CurrentState = State.Won;
+        gameOverTime = Time.realtimeSinceStartup;
 
         lumberjack.Win();
         foreach (var b in backgrounds) b.Win();
