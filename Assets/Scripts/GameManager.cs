@@ -54,7 +54,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private bool InputDown => Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space);
+    private bool InputDown => Application.isMobilePlatform
+        ? Input.GetMouseButtonDown(0)
+        : Input.GetKeyDown(KeyCode.Space);
 
     private IEnumerator StartPlaying()
     {
