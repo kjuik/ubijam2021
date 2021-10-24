@@ -50,6 +50,7 @@ public class BeatRecorder : MonoBehaviour
             else
             {
                 currentRecording.beats.Add(Time.realtimeSinceStartup - startTime);
+                SoundEffects.Instance.PlayChop();
             }
         }
 
