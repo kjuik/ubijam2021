@@ -33,12 +33,13 @@ public class UIController : MonoBehaviour
                 currentPanel = startPanel;
                 break;
             case GameManager.State.Playing:
+            case GameManager.State.Won:
                 currentPanel = null;
                 break;
             case GameManager.State.Lost:
                 currentPanel = losePanel;
                 break;
-            case GameManager.State.Won:
+            case GameManager.State.EndScreen:
                 currentPanel = winPanel;
                 break;
         }

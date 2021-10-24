@@ -67,6 +67,10 @@ public class Lumberjack : MonoBehaviour
         StopAllCoroutines();
         isChopping = false;
         isRunning = false;
-        //TODO animate
+    }
+
+    public void ReachBear()
+    {
+        animator.SetTrigger("win");
     }
 }

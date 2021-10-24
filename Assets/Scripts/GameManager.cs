@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         Started,
         Playing,
         Lost,
-        Won
+        Won,
+        EndScreen
     }
 
     public State CurrentState { get; private set; } = State.Started;
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case State.Lost:
-            case State.Won:
+            case State.EndScreen:
                 if (InputDown && (Time.realtimeSinceStartup - gameOverTime) > restartDelay)
                 {
                     Restart();
@@ -100,6 +101,11 @@ public class GameManager : MonoBehaviour
         foreach (var b in backgrounds) b.Win();
         music.PlayWin();
         treeSpawner.StopSpawning();
+    }
+    internal void ReachBear()
+    {
+        CurrentState = State.EndScreen;
+        lumberjack.ReachBear();
     }
 
     private void Restart()

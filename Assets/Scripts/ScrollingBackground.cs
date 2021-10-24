@@ -86,6 +86,8 @@ public class ScrollingBackground : MonoBehaviour
             isSlowingDown = true;
             startSlowingDownTime = Time.realtimeSinceStartup;
 
+            GameManager.Instance.ReachBear();
+
         }
         if (isSlowingDown && currentSpeedPercentage > 0f) 
         { 
