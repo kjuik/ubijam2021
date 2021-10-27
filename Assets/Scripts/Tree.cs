@@ -10,9 +10,22 @@ public class Tree : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.Instance.CurrentState == GameManager.State.Playing)
+        switch (GameManager.Instance.CurrentState)
         {
-            transform.position += speed * Time.deltaTime;
+            case GameManager.State.Started:
+                break;
+            case GameManager.State.Playing:
+                transform.position += speed * Time.deltaTime;
+                break;
+            case GameManager.State.Lost:
+                break;
+            case GameManager.State.Won:
+            case GameManager.State.EndScreen:
+                if (!isFalling)
+                {
+                    Fall();
+                }
+                break;
         }
     }
 
