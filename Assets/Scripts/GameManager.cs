@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public TreeSpawner treeSpawner;
 
     public float walkmanStartDelay = 0.5f;
-    public float restartDelay = 2f;
+    private float restartDelay = 8f;
 
     float gameOverTime;
 
